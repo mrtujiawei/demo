@@ -16,7 +16,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
+import { projectPath } from './utils';
 
 type Rules = webpack.RuleSetUseItem[];
 
@@ -56,11 +56,9 @@ const getConfig = (mode: webpack.Configuration['mode'], demo: string) => {
   const config: webpack.Configuration = {
     mode,
 
-    entry: path.resolve(process.cwd(), 'packages', demo, 'src/index'),
+    entry: projectPath(`packages/${demo}/src/index`),
     output: {
-      path: isEnvProduction
-        ? path.resolve(process.cwd(), 'dist', demo)
-        : path.resolve(process.cwd(), demo),
+      path: isEnvProduction ? projectPath(`dist/${demo}`) : projectPath(demo),
       publicPath: isEnvProduction ? `/${demo}` : '/',
       filename: 'js/[name].[contenthash:9].js',
       chunkFilename: 'js/[contenthash:9].js',
@@ -142,7 +140,7 @@ const getConfig = (mode: webpack.Configuration['mode'], demo: string) => {
         filename: 'css/[name].[contenthash:9].css',
       }),
       new HTMLWebpackPlugin({
-        template: path.resolve(process.cwd(), 'public/index.html'),
+        template: projectPath('public/index.html'),
       }),
     ],
     resolve: {
@@ -172,8 +170,6 @@ const getConfig = (mode: webpack.Configuration['mode'], demo: string) => {
         new CssMinimizerPlugin(),
       ],
       splitChunks: {
-        minSize: 500,
-        minChunks: 1,
         cacheGroups: {
           vendors: {
             name: 'vendors',
