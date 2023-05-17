@@ -62,8 +62,8 @@ const getConfig = (mode: webpack.Configuration['mode'], demo: string) => {
         ? path.resolve(process.cwd(), 'dist', demo)
         : path.resolve(process.cwd(), demo),
       publicPath: isEnvProduction ? `/${demo}` : '/',
-      filename: '[name].[contenthash:9].js',
-      chunkFilename: '[contenthash:9].js',
+      filename: 'js/[name].[contenthash:9].js',
+      chunkFilename: 'js/[contenthash:9].js',
     },
 
     // 有错尽快结束
