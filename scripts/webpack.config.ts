@@ -139,7 +139,7 @@ const getConfig = (mode: webpack.Configuration['mode'], demo: string) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:9].css',
+        filename: 'css/[name].[contenthash:9].css',
       }),
       new HTMLWebpackPlugin({
         template: path.resolve(process.cwd(), 'public/index.html'),
