@@ -5,6 +5,7 @@ import { urlParamsToObject } from '@mrtujiawei/utils';
 
 const playURL = urlParamsToObject(window.location.search).playURL;
 const videoEl = document.createElement('video') as HTMLVideoElement;
+
 videoEl.controls = true;
 videoEl.preload = 'auto';
 videoEl.dataset.setup = '{}';
