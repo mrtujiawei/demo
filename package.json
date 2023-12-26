@@ -48,6 +48,9 @@
     "typescript": "5.0.4",
     "video.js": "8.3.0",
     "webpack": "5.82.1",
-    "webpack-dev-server": "4.15.0"
+    "webpack-dev-server": "4.15.0",
+    "@babel/runtime": "^7.23.2",
+    "axios": "^1.6.2",
+    "mp4box": "^0.5.2"
   }
 }
