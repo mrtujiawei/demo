@@ -1,6 +1,6 @@
 const protocol = location.protocol == 'https:' ? 'wss' : 'ws';
-// const host = location.host;
-const host = 'localhost:4444';
+const host = location.host;
+// const host = 'localhost:4444';
 
 const webSocketUrl = `${protocol}://${host}`;
 
